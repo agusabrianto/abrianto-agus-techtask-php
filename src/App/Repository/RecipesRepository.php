@@ -23,7 +23,26 @@ class RecipesRepository {
     {
         $ingredients = $this->getJsonData('Ingredient');
 
-        dd($ingredients);
+        $date = date('Y-m-d');
+
+        foreach ($ingredients['ingredients'] as $ingredient) {
+
+            $name = $ingredient['title'];
+            $bestBefore = $ingredient['best-before'];
+            $useBy = $ingredient['use-by'];
+
+            $this->ingredients[$name] = new class($name, $date, $bestBefore, $useBy) extends Ingredients
+            {
+            };
+        }
+
+        $this->recipes = $this->getJsonData('Recipe');
+        if (empty($this->recipes['recipes'])) {
+            return [];
+        }
+
+        dd($this->ingredients);
+
     }
 
     private function getJsonData(string $file) {
