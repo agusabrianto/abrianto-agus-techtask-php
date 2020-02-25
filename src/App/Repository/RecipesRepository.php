@@ -41,8 +41,38 @@ class RecipesRepository {
             return [];
         }
 
-        dd($this->ingredients);
+        return $this->menu();
+    }
 
+    private function menu() : array
+    {
+        $lunch = [];
+
+        foreach ($this->recipes['recipes'] as $recipe) {
+
+            $name = $recipe['title'];
+            $hasIngredientsAfterBestBefore = false;
+
+            foreach ($recipe['ingredients'] as $ingredient) {
+
+                $recipeIngredient = $this->ingredients[$ingredient] ?? null;
+
+                if (!($recipeIngredient instanceof Ingredients) || !$recipeIngredient->isValid()) {
+                    continue 2;
+                }
+                if ($recipeIngredient->isYetUsable()) {
+                    $hasIngredientsAfterBestBefore = true;
+                }
+            }
+
+            if ($hasIngredientsAfterBestBefore) {
+                array_push($lunch, $name);
+            } else {
+                array_unshift($lunch, $name);
+            }
+        }
+
+        return $lunch;
     }
 
     private function getJsonData(string $file) {
