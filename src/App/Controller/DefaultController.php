@@ -27,6 +27,6 @@ class DefaultController
 
         $lunch = $repository->lunch($use_by);
 
-        dd($lunch);
+        return new JsonResponse(['Lunch' => $lunch], Response::HTTP_OK);
     }
 }
