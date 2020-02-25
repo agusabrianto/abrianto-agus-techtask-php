@@ -23,7 +23,9 @@ class DefaultController
     public function lunch(Request $request, RecipesRepository $repository)
     {
 
-        $lunch = $repository->lunch();
+        $use_by = $request->get('use-by');
+
+        $lunch = $repository->lunch($use_by);
 
         dd($lunch);
     }

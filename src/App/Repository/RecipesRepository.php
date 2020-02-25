@@ -19,11 +19,15 @@ class RecipesRepository {
         $this->kernel = $kernel;
     }
 
-    public function lunch(): array
+    public function lunch($use_by = null): array
     {
         $ingredients = $this->getJsonData('Ingredient');
 
-        $date = date('Y-m-d');
+        $date = $use_by;
+
+        if(null == $use_by) {
+            $date = date('Y-m-d');
+        }
 
         foreach ($ingredients['ingredients'] as $ingredient) {
 
