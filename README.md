@@ -43,5 +43,5 @@ git clone https://github.com/agusabrianto/abrianto-agus-techtask-php.git
 ## Unit Testing
 
 ```bash
-php vendor/bin/phpunit
+php bin/phpunit
 ```
