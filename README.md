@@ -1,48 +1,47 @@
-__Language :__ English | [Bahasa Indonesia](README_ID.md)
+# Abrianto-Agus-TechTask-PHP
 
-# PHP Technical Task
-Suggested recipes for lunch API
+## Cara Instalasi (Menggunakan Composer)
 
-## Time management
-There is no deadline to do this tech task. It's up to you how you manage your time to accomplish at least the requirements.
+- Clone repositori dengan `git clone` command:
 
-## Assessment
+```
+git clone https://github.com/agusabrianto/abrianto-agus-techtask-php.git
+```
 
-Our assessment criteria will pay attention on:
-- How the application is structured.
-- Code quality (Clean code).
-- Quality of tests.
-- Interpretation of the problem.
-- Use of `git`.
-- Implementation and final execution.
-- Commits, as this will allow us to understand some of the decisions you make throughout the process.
+- Masuk ke direktori `abrianto-agus-techtask-php` dengan perintah `cd abrianto-agus-techtask-php`
 
-## User Story
-As a User I would like to make a request to an API that will determine from a set of recipes what I can have for lunch today based on the contents of my fridge, so that I quickly decide what I’ll be having.
+- Jalankan perintah `composer install`
 
-__Acceptance Criteria__
-- Given that I have made a request to the `/lunch` endpoint I should receive a `JSON` response of the recipes 
-that I can prepare based on the availability of ingredients in my fridge.
-- Given that an ingredient is past its `use-by` date (inclusive), I should not receive recipes containing this ingredient.
-- Given that an ingredient is past its `best-before` date (inclusive), but is still within its `use-by` date (inclusive), any recipe containing the oldest (less fresh) ingredient should placed at the bottom of the response object.
+- Jalankan perintah `symfony server:start` untuk menjalankan web server
 
-__Additional Criteria__
-- The application SHOULD contains unit / integration tests (e.g. `PHPUnit`).
-- The application MUST be completed using an `OOP` approach.
-- The application MUST be `PSR` compliant.
-- Any dependencies MUST be installed using `Composer` (no need to commit dependencies, the
-composer.lock file will be sufficient).
-- Use `PHP5.6` or `PHP7`.
-- Any installation, build steps, testing and usage instructions MUST be provided in a `README.md` file in the root of the application.
+- Buka browser pada alamat `http://localhost:8000` atau sesuai port yang tampil ketika menjalankan perintah diatas
 
-## Framework
-Use the `Symfony micro framework` (https://symfony.com/doc/current/setup.html) to create the application API. 
+- Buka API lunch dengan alamat `http://localhost:8000/lunch?use-by=2019-03-01`
 
-## Application Data
-For the purpose of this task, the application should simply read data from 2 x JSON files. The contents for these files can be found [here](src/App/Ingredient/data.json) and [here](src/App/Recipe/data.json).
- 
-## Submission
-The application should be committed to a __public repository__ on `GitHub` or `BitBucket` (`<lastname>-<firstname>-techtask-php`) and simply send us a link to the repository.
+## Cara Instalasi (Menggunakan Docker)
 
-## Bonus
-Configure a `Docker` environment so that we can test and run the application quickly. The application should be installed with a single command.
+- Clone repositori dengan `git clone` command:
+
+```
+git clone https://github.com/agusabrianto/abrianto-agus-techtask-php.git
+```
+
+- Masuk ke direktori `abrianto-agus-techtask-php` dengan perintah `cd abrianto-agus-techtask-php`
+
+- Jalankan perintah `composer install`
+
+- Masuk ke direktori `abrianto-agus-techtask-php/docker` dengan perintah `cd abrianto-agus-techtask-php/docker`
+
+- Jalankan perintah `docker-compose build`
+
+- Jalankan perintah `docker-compose up -d`
+
+- Buka browser pada alamat `http://localhost:8080`
+
+- Buka API lunch dengan alamat `http://localhost:8080/lunch?use-by=2019-03-01`
+
+## Unit Testing
+
+```bash
+php vendor/bin/phpunit
+```
