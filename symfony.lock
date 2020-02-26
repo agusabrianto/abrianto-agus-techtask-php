@@ -1,4 +1,7 @@
 {
+    "php": {
+        "version": "7.2"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -7,6 +10,9 @@
     },
     "psr/log": {
         "version": "1.1.1"
+    },
+    "symfony/browser-kit": {
+        "version": "v4.3.11"
     },
     "symfony/cache": {
         "version": "v4.3.5"
@@ -35,6 +41,9 @@
     },
     "symfony/dependency-injection": {
         "version": "v4.3.5"
+    },
+    "symfony/dom-crawler": {
+        "version": "v4.3.11"
     },
     "symfony/dotenv": {
         "version": "v4.3.5"
@@ -90,6 +99,22 @@
     },
     "symfony/mime": {
         "version": "v4.3.5"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "3f8a8c93cd47061999316f8d56edd6c2abca9308"
+        },
+        "files": [
+            ".env.test",
+            "bin/phpunit",
+            "config/services_test.yaml",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.12.0"
